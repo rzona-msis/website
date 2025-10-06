@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My Personal Website</title>
+	<style>
+		body {
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			margin: 0;
+			padding: 0;
+			background: #f4f4f9;
+			color: #222;
+		}
+		header {
+			background: #222;
+			color: #fff;
+			padding: 2rem 0 1rem 0;
+			text-align: center;
+		}
+		nav {
+			margin: 1rem 0;
+		}
+		nav a {
+			color: #fff;
+			text-decoration: none;
+			margin: 0 1.5rem;
+			font-weight: 500;
+			transition: color 0.2s;
+		}
+		nav a:hover {
+			color: #ff9800;
+		}
+		.container {
+			max-width: 900px;
+			margin: 2rem auto;
+			background: #fff;
+			border-radius: 10px;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+			padding: 2rem 2.5rem;
+		}
+		h1 {
+			margin-bottom: 0.5rem;
+		}
+		.intro {
+			font-size: 1.2rem;
+			margin-bottom: 2rem;
+		}
+		.cta {
+			display: inline-block;
+			margin-top: 1.5rem;
+			padding: 0.7rem 2rem;
+			background: #ff9800;
+			color: #fff;
+			border-radius: 5px;
+			text-decoration: none;
+			font-weight: bold;
+			transition: background 0.2s;
+		}
+		.cta:hover {
+			background: #e65100;
+		}
+		@media (max-width: 600px) {
+			.container {
+				padding: 1rem;
+			}
+			nav a {
+				margin: 0 0.5rem;
+			}
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>Welcome to My Personal Website</h1>
+		<nav>
+			<a href="index.html">Home</a>
+			<a href="about.html">About</a>
+			<a href="projects.html">Projects</a>
+			<a href="resume.html">Resume</a>
+			<a href="contact.html">Contact</a>
+		</nav>
+	</header>
+	<div class="container">
+		<div class="intro">
+			<p>Hello! I'm <strong>Reid Zona</strong>, a Master of Science in Information Systems student at Indiana University's Kelley School of Business. I have a passion for data-driven solutions, digital transformation, and bridging the gap between technology and business. Explore my site to learn about my education, experience, projects, and how to connect with me.</p>
+		</div>
+		<a class="cta" href="about.html">Learn more about me</a>
+	</div>
+</body>
+</html>

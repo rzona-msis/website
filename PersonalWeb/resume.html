@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Resume - Reid Zona</title>
+	<style>
+		body {
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			margin: 0;
+			padding: 0;
+			background: #f4f4f9;
+			color: #222;
+		}
+		header {
+			background: #222;
+			color: #fff;
+			padding: 2rem 0 1rem 0;
+			text-align: center;
+		}
+		nav {
+			margin: 1rem 0;
+		}
+		nav a {
+			color: #fff;
+			text-decoration: none;
+			margin: 0 1.5rem;
+			font-weight: 500;
+			transition: color 0.2s;
+		}
+		nav a:hover {
+			color: #ff9800;
+		}
+		.container {
+			max-width: 900px;
+			margin: 2rem auto;
+			background: #fff;
+			border-radius: 10px;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+			padding: 2rem 2.5rem;
+		}
+		h1 {
+			margin-bottom: 0.5rem;
+		}
+		.section-title {
+			color: #ff9800;
+			margin-top: 2rem;
+			margin-bottom: 0.5rem;
+			font-size: 1.2rem;
+			font-weight: bold;
+		}
+		.pdf-viewer {
+			width: 100%;
+			height: 700px;
+			border: none;
+			border-radius: 8px;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+			margin-top: 2rem;
+		}
+		.download-link {
+			display: inline-block;
+			margin-top: 1rem;
+			padding: 0.6rem 1.5rem;
+			background: #ff9800;
+			color: #fff;
+			border-radius: 5px;
+			text-decoration: none;
+			font-weight: bold;
+			transition: background 0.2s;
+		}
+		.download-link:hover {
+			background: #e65100;
+		}
+		ul {
+			margin: 0.5rem 0 1.5rem 1.5rem;
+		}
+		@media (max-width: 600px) {
+			.container {
+				padding: 1rem;
+			}
+			nav a {
+				margin: 0 0.5rem;
+			}
+			.pdf-viewer {
+				height: 400px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>Reid Zona - Resume</h1>
+		<nav>
+			<a href="index.html">Home</a>
+			<a href="about.html">About</a>
+			<a href="projects.html">Projects</a>
+			<a href="resume.html">Resume</a>
+			<a href="contact.html">Contact</a>
+		</nav>
+	</header>
+	<div class="container">
+		<h2 class="section-title">Contact Information</h2>
+		<ul>
+			<li><strong>Name:</strong> Reid Zona</li>
+			<li><strong>Email:</strong> reidzona@gmail.com</li>
+			<li><strong>Phone:</strong> (480) 678-9642</li>
+			<li><strong>Location:</strong> Chandler, AZ</li>
+			<li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/reidzona" target="_blank">linkedin.com/in/reidzona</a></li>
+		</ul>
+
+		<h2 class="section-title">Education</h2>
+		<ul>
+			<li><strong>Arizona State University</strong> — B.S. Computer Science (Expected May 2025)</li>
+			<li><strong>GPA:</strong> 3.97</li>
+		</ul>
+
+		<h2 class="section-title">Technical Skills</h2>
+		<ul>
+			<li>Languages: Python, Java, C, C++, JavaScript, SQL, HTML, CSS</li>
+			<li>Frameworks/Tools: Flask, React, Node.js, Git, Linux, Docker, AWS</li>
+			<li>Other: Agile, REST APIs, OOP, Data Structures, Algorithms</li>
+		</ul>
+
+		<h2 class="section-title">Experience</h2>
+		<ul>
+			<li><strong>Software Engineering Intern</strong> — Honeywell (May 2024 - Aug 2024)<br>
+				• Developed Python automation tools for cloud infrastructure.<br>
+				• Improved CI/CD pipelines and reduced deployment time by 30%.
+			</li>
+			<li><strong>Undergraduate Researcher</strong> — ASU (Jan 2023 - Present)<br>
+				• Built web apps for data visualization using Flask and React.<br>
+				• Published research on machine learning model interpretability.
+			</li>
+		</ul>
+
+		<h2 class="section-title">Projects</h2>
+		<ul>
+			<li><strong>Personal Portfolio Website:</strong> Designed and deployed a responsive website using Flask and React to showcase projects and skills.</li>
+			<li><strong>Smart Home Automation:</strong> Created a Python-based IoT system for home device control and monitoring.</li>
+		</ul>
+
+		<h2 class="section-title">Honors & Awards</h2>
+		<ul>
+			<li>Dean’s List, ASU (2021-2025)</li>
+			<li>National Merit Scholar</li>
+		</ul>
+
+		<h2 class="section-title">Download or View PDF</h2>
+		<p>You can view my full resume below or <a class="download-link" href="resume.pdf" download>download the PDF</a>.</p>
+		<iframe class="pdf-viewer" src="resume.pdf" title="Reid Zona Resume PDF"></iframe>
+	</div>
+</body>
+</html>
