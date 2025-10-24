@@ -1,0 +1,231 @@
+{% extends "base.html" %}
+
+{% block title %}Forms - My Personal Website{% endblock %}
+
+{% block header_title %}Forms{% endblock %}
+
+{% block extra_styles %}
+.container {
+	max-width: 800px;
+}
+.form-section {
+	background: #fafafa;
+	padding: 2rem;
+	margin-bottom: 2rem;
+	border-radius: 8px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.form-section h2 {
+	color: #ff9800;
+	margin-top: 0;
+	margin-bottom: 1rem;
+}
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+.form-group {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+label {
+	font-weight: 600;
+	color: #333;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+	padding: 0.75rem;
+	border: 2px solid #ddd;
+	border-radius: 5px;
+	font-size: 1rem;
+	font-family: inherit;
+	transition: border-color 0.2s;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+	outline: none;
+	border-color: #ff9800;
+}
+textarea {
+	min-height: 120px;
+	resize: vertical;
+}
+button[type="submit"] {
+	background: #ff9800;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	padding: 1rem 0;
+	font-size: 1.1rem;
+	font-weight: bold;
+	cursor: pointer;
+	transition: background 0.2s;
+}
+button[type="submit"]:hover {
+	background: #e65100;
+}
+.required {
+	color: #d32f2f;
+}
+.help-text {
+	font-size: 0.9rem;
+	color: #666;
+	margin-top: 0.25rem;
+}
+.error-message {
+	color: #d32f2f;
+	font-size: 0.9rem;
+	margin-top: 0.25rem;
+}
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+function validateContactForm(event) {
+	let valid = true;
+	// Clear previous errors
+	document.querySelectorAll('.error-message').forEach(e => e.textContent = '');
+	
+	// Get form values
+	const firstName = document.getElementById('firstName').value.trim();
+	const lastName = document.getElementById('lastName').value.trim();
+	const email = document.getElementById('email').value.trim();
+	const password = document.getElementById('password').value;
+	const confirmPassword = document.getElementById('confirmPassword').value;
+	
+	// Validate First Name
+	if (!firstName) {
+		document.getElementById('firstNameError').textContent = 'First Name is required.';
+		valid = false;
+	}
+	
+	// Validate Last Name
+	if (!lastName) {
+		document.getElementById('lastNameError').textContent = 'Last Name is required.';
+		valid = false;
+	}
+	
+	// Validate Email
+	const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+	if (!email) {
+		document.getElementById('emailError').textContent = 'Email Address is required.';
+		valid = false;
+	} else if (!emailPattern.test(email)) {
+		document.getElementById('emailError').textContent = 'Please enter a valid email address.';
+		valid = false;
+	}
+	
+	// Validate Password
+	if (!password) {
+		document.getElementById('passwordError').textContent = 'Password is required.';
+		valid = false;
+	} else if (password.length < 8) {
+		document.getElementById('passwordError').textContent = 'Password must be at least 8 characters.';
+		valid = false;
+	}
+	
+	// Validate Confirm Password
+	if (!confirmPassword) {
+		document.getElementById('confirmPasswordError').textContent = 'Please confirm your password.';
+		valid = false;
+	} else if (password !== confirmPassword) {
+		document.getElementById('confirmPasswordError').textContent = 'Passwords do not match.';
+		valid = false;
+	}
+	
+	if (!valid) {
+		event.preventDefault();
+	} else {
+		// Redirect to thank you page
+		event.preventDefault();
+		window.location.href = '/thankyou';
+	}
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+	<p>Use the forms below to add a new project to your portfolio or get in touch with me.</p>
+	
+	<!-- Add Project Form -->
+	<div class="form-section">
+		<h2>Add New Project</h2>
+		<p>Fill in the project details below to add it to the portfolio.</p>
+		
+		<form method="POST" action="/forms">
+			<input type="hidden" name="form_type" value="project">
+			
+			<div class="form-group">
+				<label for="title">Project Title <span class="required">*</span></label>
+				<input type="text" id="title" name="title" required placeholder="Enter project title">
+			</div>
+			
+			<div class="form-group">
+				<label for="description">Project Description <span class="required">*</span></label>
+				<textarea id="description" name="description" required placeholder="Describe your project in detail..."></textarea>
+			</div>
+			
+			<div class="form-group">
+				<label for="image_filename">Image Filename (optional)</label>
+				<input type="text" id="image_filename" name="image_filename" placeholder="e.g., project-screenshot.png">
+				<p class="help-text">
+					Upload your image to the <code>flask_conversion/images/</code> folder, then enter just the filename here (e.g., "my-project.png"). Leave blank if no image.
+				</p>
+			</div>
+			
+			<button type="submit">Add Project</button>
+		</form>
+	</div>
+	
+	<!-- Contact Me Form -->
+	<div class="form-section">
+		<h2>Contact Me</h2>
+		<p>Thank you for your interest! Please fill out the form below to get in touch. Whether you have a question about my experience at Indiana University, my analytics and consulting work, or want to connect about opportunities, I look forward to hearing from you.</p>
+		
+		<form id="contactForm" onsubmit="validateContactForm(event)" novalidate>
+			<div class="form-group">
+				<label for="firstName">First Name <span class="required">*</span></label>
+				<input type="text" id="firstName" name="firstName" required>
+				<div id="firstNameError" class="error-message"></div>
+			</div>
+			
+			<div class="form-group">
+				<label for="lastName">Last Name <span class="required">*</span></label>
+				<input type="text" id="lastName" name="lastName" required>
+				<div id="lastNameError" class="error-message"></div>
+			</div>
+			
+			<div class="form-group">
+				<label for="email">Email Address <span class="required">*</span></label>
+				<input type="email" id="email" name="email" required>
+				<div id="emailError" class="error-message"></div>
+			</div>
+			
+			<div class="form-group">
+				<label for="password">Password <span class="required">*</span></label>
+				<input type="password" id="password" name="password" required minlength="8">
+				<div id="passwordError" class="error-message"></div>
+			</div>
+			
+			<div class="form-group">
+				<label for="confirmPassword">Confirm Password <span class="required">*</span></label>
+				<input type="password" id="confirmPassword" name="confirmPassword" required minlength="8">
+				<div id="confirmPasswordError" class="error-message"></div>
+			</div>
+			
+			<button type="submit">Submit Contact Form</button>
+		</form>
+	</div>
+	
+	<p style="margin-top: 2rem; text-align: center;">
+		<a href="/projects" style="color: #ff9800; text-decoration: none; font-weight: 500;">← View All Projects</a>
+	</p>
+</div>
+{% endblock %}

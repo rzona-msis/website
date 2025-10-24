@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{% block title %}My Personal Website{% endblock %}</title>
+	<style>
+		body {
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			margin: 0;
+			padding: 0;
+			background: #f4f4f9;
+			color: #222;
+		}
+		header {
+			background: #222;
+			color: #fff;
+			padding: 2rem 0 1rem 0;
+			text-align: center;
+		}
+		nav {
+			margin: 1rem 0;
+		}
+		nav a {
+			color: #fff;
+			text-decoration: none;
+			margin: 0 1.5rem;
+			font-weight: 500;
+			transition: color 0.2s;
+		}
+		nav a:hover {
+			color: #ff9800;
+		}
+		.container {
+			max-width: 900px;
+			margin: 2rem auto;
+			background: #fff;
+			border-radius: 10px;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+			padding: 2rem 2.5rem;
+		}
+		h1 {
+			margin-bottom: 0.5rem;
+		}
+		@media (max-width: 600px) {
+			.container {
+				padding: 1rem;
+			}
+			nav a {
+				margin: 0 0.5rem;
+			}
+		}
+		/* Additional styles from child templates */
+		{% block extra_styles %}{% endblock %}
+	</style>
+	{% block extra_head %}{% endblock %}
+</head>
+<body>
+	<header>
+		<h1>{% block header_title %}Welcome to My Personal Website{% endblock %}</h1>
+		<nav>
+			<a href="/">Home</a>
+			<a href="/about">About</a>
+			<a href="/projects">Projects</a>
+			<a href="/resume">Resume</a>
+			<a href="/forms">Forms</a>
+		</nav>
+	</header>
+	{% block content %}{% endblock %}
+	{% block extra_scripts %}{% endblock %}
+</body>
+</html>

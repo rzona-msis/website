@@ -1,0 +1,304 @@
+{% extends "base.html" %}{% extends "base.html" %}
+
+
+
+{% block title %}Add New Project - My Personal Website{% endblock %}{% block title %}Add New Project - My Personal Website{% endblock %}
+
+
+
+{% block header_title %}Add New Project{% endblock %}{% block header_title %}Add New Project{% endblock %}
+
+
+
+{% block extra_styles %}{% block extra_styles %}
+
+.container {.container {
+
+	max-width: 700px;	max-width: 700px;
+
+}}
+
+form {form {
+
+	display: flex;	display: flex;
+
+	flex-direction: column;	flex-direction: column;
+
+	gap: 1.2rem;	gap: 1.2rem;
+
+}}
+
+label {label {
+
+	font-weight: 500;	font-weight: 500;
+
+	margin-bottom: 0.3rem;	margin-bottom: 0.3rem;
+
+	display: block;	display: block;
+
+}}
+
+input[type="text"],input[type="text"],
+
+textarea {textarea {
+
+	padding: 0.7rem;	padding: 0.7rem;
+
+	border: 1px solid #ccc;	border: 1px solid #ccc;
+
+	border-radius: 5px;	border-radius: 5px;
+
+	font-size: 1rem;	font-size: 1rem;
+
+	width: 100%;	width: 100%;
+
+	box-sizing: border-box;	box-sizing: border-box;
+
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}}
+
+textarea {textarea {
+
+	min-height: 150px;	min-height: 150px;
+
+	resize: vertical;	resize: vertical;
+
+}}
+
+.error-message {.error-message {
+
+	color: #d32f2f;	color: #d32f2f;
+
+	font-size: 0.98rem;	font-size: 0.98rem;
+
+	margin-top: 0.3rem;	margin-top: 0.3rem;
+
+}}
+
+.success-message {.success-message {
+
+	color: #2e7d32;	color: #2e7d32;
+
+	background: #e8f5e9;	background: #e8f5e9;
+
+	padding: 1rem;	padding: 1rem;
+
+	border-radius: 5px;	border-radius: 5px;
+
+	margin-bottom: 1rem;	margin-bottom: 1rem;
+
+}}
+
+button[type="submit"] {button[type="submit"] {
+
+	background: #ff9800;	background: #ff9800;
+
+	color: #fff;	color: #fff;
+
+	border: none;	border: none;
+
+	border-radius: 5px;	border-radius: 5px;
+
+	padding: 0.8rem 0;	padding: 0.8rem 0;
+
+	font-size: 1.1rem;	font-size: 1.1rem;
+
+	font-weight: bold;	font-weight: bold;
+
+	cursor: pointer;	cursor: pointer;
+
+	transition: background 0.2s;	transition: background 0.2s;
+
+}}
+
+button[type="submit"]:hover {button[type="submit"]:hover {
+
+	background: #e65100;	background: #e65100;
+
+}}
+
+.form-hint {.form-hint {
+
+	font-size: 0.9rem;	font-size: 0.9rem;
+
+	color: #666;	color: #666;
+
+	margin-top: 0.3rem;	margin-top: 0.3rem;
+
+}}
+
+{% endblock %}{% endblock %}
+
+
+
+{% block extra_scripts %}{% block extra_scripts %}
+
+<script><script>
+
+	function validateForm(event) {	function validateForm(event) {
+
+		let valid = true;		let valid = true;
+
+		// Clear previous errors		// Clear previous errors
+
+		document.querySelectorAll('.error-message').forEach(e => e.textContent = '');		document.querySelectorAll('.error-message').forEach(e => e.textContent = '');
+
+				
+
+		// Get form values		// Get form values
+
+		const title = document.getElementById('title').value.trim();		const title = document.getElementById('title').value.trim();
+
+		const description = document.getElementById('description').value.trim();		const description = document.getElementById('description').value.trim();
+
+				
+
+		// Validate Title		// Validate Title
+
+		if (!title) {		if (!title) {
+
+			document.getElementById('titleError').textContent = 'Project Title is required.';			document.getElementById('titleError').textContent = 'Project Title is required.';
+
+			valid = false;			valid = false;
+
+		}		}
+
+				
+
+		// Validate Description		// Validate Description
+
+		if (!description) {		if (!description) {
+
+			document.getElementById('descriptionError').textContent = 'Project Description is required.';			document.getElementById('descriptionError').textContent = 'Project Description is required.';
+
+			valid = false;			valid = false;
+
+		}		}
+
+				
+
+		if (!valid) {		if (!valid) {
+
+			event.preventDefault();			event.preventDefault();
+
+		}		}
+
+		return valid;		return valid;
+
+	}	}
+
+</script></script>
+
+{% endblock %}{% endblock %}
+
+
+
+{% block content %}{% block content %}
+
+<div class="container"><div class="container">
+
+	<p>Use this form to add a new project to your portfolio. Fill in the project details below. The project will be immediately visible on the Projects page.</p>	<p>Use this form to add a new project to your portfolio. Fill in the project details below. The project will be immediately visible on the Projects page.</p>
+
+		
+
+	{% if success %}	{% if success %}
+
+	<div class="success-message">	<div class="success-message">
+
+		✓ Project added successfully! <a href="/projects">View all projects</a>		✓ Project added successfully! <a href="/projects">View all projects</a>
+
+	</div>	</div>
+
+	{% endif %}	{% endif %}
+
+		
+
+	<form method="POST" action="/contact" onsubmit="return validateForm(event)">	<form method="POST" action="/contact" onsubmit="return validateForm(event)">
+
+		<div>		<div>
+
+			<label for="title">Project Title<span style="color:#d32f2f">*</span></label>			<label for="title">Project Title<span style="color:#d32f2f">*</span></label>
+
+			<input type="text" id="title" name="title" required>			<input type="text" id="title" name="title" required>
+
+			<div id="titleError" class="error-message"></div>			<div id="titleError" class="error-message"></div>
+
+		</div>		</div>
+
+				
+
+		<div>		<div>
+
+			<label for="description">Project Description<span style="color:#d32f2f">*</span></label>			<label for="description">Project Description<span style="color:#d32f2f">*</span></label>
+
+			<textarea id="description" name="description" required></textarea>			<textarea id="description" name="description" required></textarea>
+
+			<div id="descriptionError" class="error-message"></div>			<div id="descriptionError" class="error-message"></div>
+
+			<div class="form-hint">Provide a detailed description of the project, including key highlights and achievements.</div>			<div class="form-hint">Provide a detailed description of the project, including key highlights and achievements.</div>
+
+		</div>		</div>
+
+				
+
+		<div>		<div>
+
+			<label for="image_filename">Image Filename (optional)</label>			<label for="image_filename">Image Filename (optional)</label>
+
+			<input type="text" id="image_filename" name="image_filename" placeholder="e.g., project_image.png">			<input type="text" id="image_filename" name="image_filename" placeholder="e.g., project_image.png">
+
+			<div class="form-hint">Enter the filename of an image you've placed in the static/images folder. Leave blank if no image.</div>			<div class="form-hint">Enter the filename of an image you've placed in the static/images folder. Leave blank if no image.</div>
+
+		</div>		</div>
+
+				
+
+		<button type="submit">Add Project</button>		<button type="submit">Add Project</button>
+
+	</form>	</form>
+
+</div></div>
+
+{% endblock %}{% endblock %}
+
+			event.preventDefault();
+			window.location.href = '/thankyou';
+		}
+	}
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+	<p>Thank you for your interest! Please fill out the form below to get in touch. Whether you have a question about my experience at Indiana University, my analytics and consulting work, or want to connect about opportunities, I look forward to hearing from you.</p>
+		<form id="contactForm" onsubmit="validateForm(event)" novalidate>
+			<div>
+				<label for="firstName">First Name<span style="color:#d32f2f">*</span></label>
+				<input type="text" id="firstName" name="firstName" required>
+				<div id="firstNameError" class="error-message"></div>
+			</div>
+			<div>
+				<label for="lastName">Last Name<span style="color:#d32f2f">*</span></label>
+				<input type="text" id="lastName" name="lastName" required>
+				<div id="lastNameError" class="error-message"></div>
+			</div>
+			<div>
+				<label for="email">Email Address<span style="color:#d32f2f">*</span></label>
+				<input type="email" id="email" name="email" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$">
+				<div id="emailError" class="error-message"></div>
+			</div>
+			<div>
+				<label for="password">Password<span style="color:#d32f2f">*</span></label>
+				<input type="password" id="password" name="password" required minlength="8">
+				<div id="passwordError" class="error-message"></div>
+			</div>
+			<div>
+				<label for="confirmPassword">Confirm Password<span style="color:#d32f2f">*</span></label>
+				<input type="password" id="confirmPassword" name="confirmPassword" required minlength="8">
+				<div id="confirmPasswordError" class="error-message"></div>
+			</div>
+			<button type="submit">Submit</button>
+	</form>
+</div>
+{% endblock %}

@@ -41,4 +41,5 @@ def resume_pdf():
     return send_from_directory('.', 'resume.pdf')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Run on all interfaces (0.0.0.0) to be accessible from outside container
+    app.run(host='0.0.0.0', port=5000, debug=False)

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Home - My Personal Website{% endblock %}
+
+{% block header_title %}Welcome to My Personal Website{% endblock %}
+
+{% block extra_styles %}
+.intro {
+	font-size: 1.2rem;
+	margin-bottom: 2rem;
+}
+.cta {
+	display: inline-block;
+	margin-top: 1.5rem;
+	padding: 0.7rem 2rem;
+	background: #ff9800;
+	color: #fff;
+	border-radius: 5px;
+	text-decoration: none;
+	font-weight: bold;
+	transition: background 0.2s;
+}
+.cta:hover {
+	background: #e65100;
+}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+	<div class="intro">
+		<p>Hello! I'm <strong>Reid Zona</strong>, a Master of Science in Information Systems student at Indiana University's Kelley School of Business. I have a passion for data-driven solutions, digital transformation, and bridging the gap between technology and business. Explore my site to learn about my education, experience, projects, and how to connect with me.</p>
+	</div>
+	<a class="cta" href="/about">Learn more about me</a>
+</div>
+{% endblock %}

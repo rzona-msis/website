@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+
+{% block title %}Resume - Reid Zona{% endblock %}
+
+{% block header_title %}Reid Zona - Resume{% endblock %}
+
+{% block extra_styles %}
+.section-title {
+	color: #ff9800;
+	margin-top: 2rem;
+	margin-bottom: 0.5rem;
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+.pdf-viewer {
+	width: 100%;
+	height: 700px;
+	border: none;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+	margin-top: 2rem;
+}
+.download-link {
+	display: inline-block;
+	margin-top: 1rem;
+	padding: 0.6rem 1.5rem;
+	background: #ff9800;
+	color: #fff;
+	border-radius: 5px;
+	text-decoration: none;
+	font-weight: bold;
+	transition: background 0.2s;
+}
+.download-link:hover {
+	background: #e65100;
+}
+ul {
+	margin: 0.5rem 0 1.5rem 1.5rem;
+}
+@media (max-width: 600px) {
+	.pdf-viewer {
+		height: 400px;
+	}
+}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+		<h2 class="section-title">Contact Information</h2>
+		<ul>
+			<li><strong>Name:</strong> Reid Zona</li>
+			<li><strong>Email:</strong> <a href="mailto:reidzona@gmail.com">reidzona@gmail.com</a></li>
+			<li><strong>Phone:</strong> (480) 678-9642</li>
+			<li><strong>Location:</strong> Bloomington, IN</li>
+			<li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/reidzona" target="_blank">linkedin.com/in/reidzona</a></li>
+			<li><strong>GitHub:</strong> <a href="https://github.com/rzona-msis" target="_blank">github.com/rzona-msis</a></li>
+		</ul>
+
+		<h2 class="section-title">Education</h2>
+		<ul>
+			<li>
+				<strong>Indiana University, Kelley School of Business</strong> — Bloomington, IN<br>
+				Master of Science in Information Systems (Expected May 2026)<br>
+				<em>Relevant Coursework:</em> Data Management, Systems Analysis & Design, Database Design
+			</li>
+			<li style="margin-top: 1rem;">
+				<strong>Indiana University, Luddy School of Informatics, Computing & Engineering</strong> — Bloomington, IN<br>
+				Bachelor of Informatics, Minors in Business & Psychology (May 2024)<br>
+				<em>Relevant Coursework:</em> Data Structures & Algorithms, Software Engineering, Machine Learning, Human-Computer Interaction
+			</li>
+		</ul>
+
+		<h2 class="section-title">Technical Skills</h2>
+		<ul>
+			<li><strong>Programming Languages:</strong> Python, SQL, R, Java, CSS, HTML</li>
+			<li><strong>Data Analysis & Visualization:</strong> Power BI, Tableau, Excel (Advanced), Pandas, NumPy</li>
+			<li><strong>Databases:</strong> MySQL, PostgreSQL, MongoDB, SQLite</li>
+			<li><strong>Tools & Platforms:</strong> Git, Jira, Confluence, Salesforce, SAP, Microsoft Office Suite</li>
+			<li><strong>Methodologies:</strong> Agile, Scrum, Data Modeling, ETL Processes, Business Intelligence</li>
+		</ul>
+
+		<h2 class="section-title">Professional Experience</h2>
+		<ul>
+			<li style="margin-bottom: 1.5rem;">
+				<strong>Summer Analyst</strong> — Insight2Profit, Chicago, IL (May 2024 - August 2024)<br>
+				• Analyzed over 10 million transactions in Power BI to create a dynamic pricing recommendation tool, projected to impact $1.7 million in revenue<br>
+				• Developed a tier-based sales incentive framework and implemented revenue recognition practices, uncovering $2 million in new revenue<br>
+				• Established data mapping and validation practices for ERP implementations, improving data accuracy by 25%<br>
+				• Created comprehensive documentation and training materials to facilitate stakeholder adoption of new pricing strategies
+			</li>
+			<li style="margin-bottom: 1.5rem;">
+				<strong>Strategic Operations Intern</strong> — Republic Airways, Indianapolis, IN (May 2023 - August 2023)<br>
+				• Engineered predictive models for pilot attrition and fuel consumption analysis using Python and statistical methods<br>
+				• Developed 5 interactive Power BI dashboards to track key operational metrics and KPIs for executive leadership<br>
+				• Implemented automated data pipelines that reduced manual reporting time by 40%<br>
+				• Provided data-driven insights that directly influenced strategic operational decisions for a fleet of 200+ aircraft
+			</li>
+			<li style="margin-bottom: 1.5rem;">
+				<strong>Business Analyst Intern</strong> — Tribboo, Barcelona, Spain (May 2022 - August 2022)<br>
+				• Conducted comprehensive industry analysis and competitive intelligence research for software startup<br>
+				• Mapped strategic positioning and go-to-market strategies across European markets<br>
+				• Collaborated with cross-functional teams to refine product features based on market research<br>
+				• Developed financial models to project revenue growth and evaluate business scenarios
+			</li>
+		</ul>
+
+		<h2 class="section-title">Leadership & Activities</h2>
+		<ul>
+			<li><strong>Director of Corporate Relations</strong> — MSIS Student Association, Indiana University (August 2024 - Present)<br>
+				Building partnerships with corporate sponsors and organizing professional development events for graduate students
+			</li>
+			<li><strong>Student Ambassador</strong> — Luddy School of Informatics, Computing & Engineering (August 2021 - May 2024)<br>
+				Represented the school at recruitment events, conducted campus tours, and mentored prospective students
+			</li>
+		</ul>
+
+		<h2 class="section-title">Certifications & Honors</h2>
+		<ul>
+			<li>Microsoft Power BI Data Analyst Associate (In Progress)</li>
+			<li>Dean's List, Indiana University (Multiple Semesters)</li>
+			<li>Kelley School of Business Academic Scholarship</li>
+		</ul>
+
+		<h2 class="section-title">Download Resume</h2>
+		<p>Download my complete resume as a PDF:</p>
+		<a class="download-link" href="/images/Reid_Zona_Resume.pdf" download>Download PDF Resume</a>
+</div>
+{% endblock %}
